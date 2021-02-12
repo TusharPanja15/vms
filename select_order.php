@@ -39,17 +39,17 @@ if (array_key_exists("id", $_SESSION)) {
                                                         <div class="row">
                                                             <div class="col">
                                                                 <label class="col-form-label">Date</label>
-                                                                <input value="' . $row["date"] . '" type="text" class="form-control datepicker" name="date" minlength="10" maxlength="10" size="10" placeholder="dd/mm/yyyy">
+                                                                <input disabled value="' . $row["date"] . '" type="text" class="form-control datepicker" name="date" minlength="10" maxlength="10" size="10" placeholder="dd/mm/yyyy">
                                                             </div>
 
                                                             <div class="col">
                                                                 <label class="col-form-label">GSTIN No.</label>
-                                                                <input value="' . $row["gst_no"] . '" type="text" class="form-control" id="gstin" name="gstin" minlength="8" maxlength="15" size="15" style="text-transform:uppercase">
+                                                                <input disabled value="' . $row["gst_no"] . '" type="text" class="form-control" id="gstin" name="gstin" minlength="8" maxlength="15" size="15" style="text-transform:uppercase">
                                                             </div>
 
                                                             <div class="col">
                                                                 <label class="col-form-label">Invoice No.</label>
-                                                                <input value="' . $row["invoice_no"] . '" type="text" class="form-control" id="invoiceNo" name="invoiceNo">
+                                                                <input disabled value="' . $row["invoice_no"] . '" type="text" class="form-control" id="invoiceNo" name="invoiceNo">
                                                             </div>
 
                                                         </div>
@@ -59,12 +59,12 @@ if (array_key_exists("id", $_SESSION)) {
                                                         <div class="row">
                                                             <div class="col">
                                                                 <label class="col-form-label">Name</label>
-                                                                <input value="' . $row["name"] . '" type="text" class="form-control" id="name" name="name">
+                                                                <input disabled value="' . $row["name"] . '" type="text" class="form-control" id="name" name="name">
                                                             </div>
 
                                                             <div class="col">
                                                                 <label class="col-form-label">Contact No.</label>
-                                                                <input value="' . $row["contact_no"] . '" type="number" class="form-control" id="contactNo" name="contactNo" minlength="10" maxlength="10" size="10" placeholder="+91">
+                                                                <input disabled value="' . $row["contact_no"] . '" type="number" class="form-control" id="contactNo" name="contactNo" minlength="10" maxlength="10" size="10" placeholder="+91">
                                                             </div>
 
 
@@ -76,12 +76,12 @@ if (array_key_exists("id", $_SESSION)) {
 
                                                         <div class="col">
                                                             <label class="col-form-label">Business Name</label>
-                                                            <input value="' . $row["business_name"] . '" type="text" class="form-control" id="businessName" name="businessName">
+                                                            <input disabled value="' . $row["business_name"] . '" type="text" class="form-control" id="businessName" name="businessName">
                                                         </div>
 
                                                         <div class="col">
                                                             <label class="col-form-label">Email Id</label>
-                                                            <input value="' . $row["email"] . '" type="text" class="form-control" id="emailId" name="emailId" placeholder="Apartment, studio, or floor">
+                                                            <input disabled value="' . $row["email"] . '" type="text" class="form-control" id="emailId" name="emailId" placeholder="Apartment, studio, or floor">
                                                         </div>
 
                                                     </div>
@@ -90,7 +90,7 @@ if (array_key_exists("id", $_SESSION)) {
 
                                                         <div class="col">
                                                             <label class="col-form-label">Address</label>
-                                                            <input value="' . $row["address"] . '" type="text" class="form-control" id="address" name="address" placeholder="Apartment, studio, or floor">
+                                                            <input disabled value="' . $row["address"] . '" type="text" class="form-control" id="address" name="address" placeholder="Apartment, studio, or floor">
                                                         </div>
 
                                                     </div>
@@ -99,17 +99,17 @@ if (array_key_exists("id", $_SESSION)) {
                                                         <div class="row">
                                                             <div class="col">
                                                                 <label class="col-form-label">Product Detais</label>
-                                                                <input value="' . $row["product"] . '" type="text" class="form-control" id="product" name="product">
+                                                                <input disabled value="' . $row["product"] . '" type="text" class="form-control" id="product" name="product">
                                                             </div>
 
                                                             <div class="col">
                                                                 <label class="col-form-label">Quantity</label>
-                                                                <input value="' . $row["quantity"] . '" type="text" class="form-control" id="quantity" name="quantity">                                                               
+                                                                <input disabled value="' . $row["quantity"] . '" type="text" class="form-control" id="quantity" name="quantity">                                                               
                                                             </div>
 
                                                             <div class="col">
                                                                 <label class="col-form-label">Amount</label>
-                                                                <input value="' . $row["amount"] . '" type="text" class="form-control" id="amount" name="amount" placeholder="&#8377;">
+                                                                <input disabled value="' . $row["amount"] . '" type="text" class="form-control" id="amount" name="amount" placeholder="&#8377;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,7 +121,7 @@ if (array_key_exists("id", $_SESSION)) {
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label>Payment Mode</label>
-                                                                <input value="' . $row["payment_mode"] . '" type="text" class="form-control" id="paymentMode" name="paymentMode">
+                                                                <input disabled value="' . $row["payment_mode"] . '" type="text" class="form-control" id="paymentMode" name="paymentMode">
                                                             </div>
                                                         </div>
 
@@ -129,13 +129,13 @@ if (array_key_exists("id", $_SESSION)) {
                                                             <div class="form-group">
                                                                 <label>Payment Status</label>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="true">
+                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="true">
                                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                                         Recieved
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="false">
+                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="false">
                                                                     <label class="form-check-label" for="flexRadioDefault2">
                                                                         Not Recieved
                                                                     </label>

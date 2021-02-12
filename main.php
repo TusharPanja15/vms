@@ -120,9 +120,9 @@ include "sideNavBar.php";
       <div class="card container-content">
         <img src="assets\img\invoice_receipt_animation.gif" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">My Products.</h5>
+          <h5 class="card-title">My Staff Attandance.</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="invoice.php" class="btn btn-primary">Go somewhere</a>
+          <a href="attandance.php" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
 

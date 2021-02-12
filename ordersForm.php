@@ -11,12 +11,6 @@ include "sideNavBar.php";
 <div class="content">
 
 
-    <form method="POST">
-        <input type="submit" class="btn btn-primary" name="submit" id="get_started" Value="submit">
-    </form>
-
-
-
     <h6 class="display-1">My Orders.</h6>
 
     <br>
