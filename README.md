@@ -28,7 +28,7 @@ After Starting Apache and MySQL servers in XAMPP, follow the following steps.
 	8th Step: Click on go.
 
 After Creating Database,
-	9th Step: Open a browser and go to URL “http://localhost/vms/”
+	9th Step: Open a browser and go to URL “http://localhost/project/”
 
 
 For demo purposes, you could use the folloing credentials for login
