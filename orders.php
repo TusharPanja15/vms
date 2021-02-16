@@ -33,55 +33,55 @@ if (array_key_exists("id", $_SESSION)) {
             $error .= "&middot GSTIN No. is required<br>";
         }
 
-        // if (!$_POST['invoiceNo']) {
+        if (!$_POST['invoiceNo']) {
 
-        //     $error .= "&middot Invoice No. is required<br>";
-        // }
+            $error .= "&middot Invoice No. is required<br>";
+        }
 
-        // if (!$_POST['name']) {
+        if (!$_POST['name']) {
 
-        //     $error .= "&middot A Name is required<br>";
-        // }
+            $error .= "&middot A Name is required<br>";
+        }
 
-        // if (!$_POST['contactNo']) {
+        if (!$_POST['contactNo']) {
 
-        //     $error .= "&middot A Contact No. is required<br>";
-        // }
+            $error .= "&middot A Contact No. is required<br>";
+        }
 
-        // if (!$_POST['businessName']) {
+        if (!$_POST['businessName']) {
 
-        //     $error .= "&middot A Business Name is required<br>";
-        // }
+            $error .= "&middot A Business Name is required<br>";
+        }
 
-        // if (!$_POST['emailId']) {
+        if (!$_POST['emailId']) {
 
-        //     $error .= "&middot An email is required<br>";
-        // }
+            $error .= "&middot An email is required<br>";
+        }
 
-        // if (!$_POST['address']) {
+        if (!$_POST['address']) {
 
-        //     $error .= "&middot A address is required<br>";
-        // }
+            $error .= "&middot A address is required<br>";
+        }
 
-        // if (!$_POST['product']) {
+        if (!$_POST['product']) {
 
-        //     $error .= "&middot Product Detail is required<br>";
-        // }
+            $error .= "&middot Product Detail is required<br>";
+        }
 
-        // if (!$_POST['quantity']) {
+        if (!$_POST['quantity']) {
 
-        //     $error .= "&middot Product quantityis required<br>";
-        // }
+            $error .= "&middot Product quantityis required<br>";
+        }
 
-        // if (!$_POST['amount']) {
+        if (!$_POST['amount']) {
 
-        //     $error .= "&middot An amount is required<br>";
-        // }
+            $error .= "&middot An amount is required<br>";
+        }
 
-        // if (!$_POST['paymentMode']) {
+        if (!$_POST['paymentMode']) {
 
-        //     $error .= "&middot Payment Mode is required<br>";
-        // }
+            $error .= "&middot Payment Mode is required<br>";
+        }
 
         if ($_POST['paymentStatus']) {
 
