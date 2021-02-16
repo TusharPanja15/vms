@@ -188,7 +188,22 @@
         }
 
 
+        @media print {
+            body * {
+                visibility: hidden;
+            }
 
+            #printarea,
+            #printarea * {
+                visibility: visible;
+            }
+
+            #printarea {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
 
 
 

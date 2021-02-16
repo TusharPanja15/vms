@@ -81,7 +81,7 @@ if (array_key_exists("id", $_SESSION)) {
 
                                                         <div class="col">
                                                             <label class="col-form-label">Email Id</label>
-                                                            <input disabled value="' . $row["email"] . '" type="text" class="form-control" id="emailId" name="emailId" placeholder="Apartment, studio, or floor">
+                                                            <input disabled value="' . $row["email"] . '" type="text" class="form-control" id="emailId" name="emailId">
                                                         </div>
 
                                                     </div>
@@ -90,7 +90,7 @@ if (array_key_exists("id", $_SESSION)) {
 
                                                         <div class="col">
                                                             <label class="col-form-label">Address</label>
-                                                            <input disabled value="' . $row["address"] . '" type="text" class="form-control" id="address" name="address" placeholder="Apartment, studio, or floor">
+                                                            <input disabled value="' . $row["address"] . '" type="text" class="form-control" id="address" name="address">
                                                         </div>
 
                                                     </div>
@@ -122,24 +122,6 @@ if (array_key_exists("id", $_SESSION)) {
                                                             <div class="form-group">
                                                                 <label>Payment Mode</label>
                                                                 <input disabled value="' . $row["payment_mode"] . '" type="text" class="form-control" id="paymentMode" name="paymentMode">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label>Payment Status</label>
-                                                                <div class="form-check">
-                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="true">
-                                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                                        Recieved
-                                                                    </label>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="false">
-                                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                                        Not Recieved
-                                                                    </label>
-                                                                </div>
                                                             </div>
                                                         </div>
 

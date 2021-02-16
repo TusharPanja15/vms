@@ -22,9 +22,7 @@ if (array_key_exists("id", $_SESSION)) {
 
 
 <?php
-/**
- * Student Class
- */
+
 class Student
 {
 	private $db;
@@ -62,10 +60,10 @@ class Student
 			$stu_insert = $this->db->insert($att_query);
 
 			if ($stu_insert) {
-				$msg = "<div class='alert alert-success'><strong>Success !</strong> Student data inserted successfully !</div>";
+				$msg = "<div class='alert alert-success'><strong>Success !</strong> Employee data inserted successfully !</div>";
 				return $msg;
 			} else {
-				$msg = "<div class='alert alert-danger'><strong>Error !</strong> Student data not inserted !</div>";
+				$msg = "<div class='alert alert-danger'><strong>Error !</strong> Employee data not inserted !</div>";
 				return $msg;
 			}
 		}

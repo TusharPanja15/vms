@@ -124,24 +124,7 @@ if (array_key_exists("id", $_SESSION)) {
                                                                 <input disabled value="' . $row["payment_mode"] . '" type="text" class="form-control" id="paymentMode" name="paymentMode">
                                                             </div>
                                                         </div>
-
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label>Payment Status</label>
-                                                                <div class="form-check">
-                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="true">
-                                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                                        Recieved
-                                                                    </label>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                    <input disabled class="form-check-input" type="radio" name="paymentStatus" id="paymentStatus" value="false">
-                                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                                        Not Recieved
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        
 
                                                     </div>
 

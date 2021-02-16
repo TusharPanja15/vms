@@ -24,7 +24,7 @@ After Starting Apache and MySQL servers in XAMPP, follow the following steps.
 	4th Step: Open a browser and go to URL “http://localhost/phpmyadmin/”
 	5th Step: Then, click on the databases tab
 	6th Step: Create a database naming “project” and then click on the import tab.
-	7th Step: Click on browse file and select “poject.sql” file which is inside the “Database” folder.
+	7th Step: Click on browse file and select “poject.sql” file from "sql" folder.
 	8th Step: Click on go.
 
 After Creating Database,
@@ -32,8 +32,25 @@ After Creating Database,
 
 
 For demo purposes, you could use the folloing credentials for login
-	email/username: raaa@raa.com
-	password: 123456789
+	email/username: main@main.com
+	password: main
+
+
+
+
+
+
+
+
+**************************************
+
+Created by: 	Ashutosh Tiwari
+		Tushar Kumar
+		Tushar Panja
+		Vibhum Pandey
+
+
+**************************************
 
 
 

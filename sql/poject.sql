@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2021 at 05:30 AM
+-- Generation Time: Feb 14, 2021 at 09:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -58,7 +58,12 @@ INSERT INTO `orders` (`orders_id`, `user_id`, `date`, `invoice_no`, `gst_no`, `n
 (6, 83, '02/02/2021', 'sdfgh', 'uytrewdfgh', 'sdfgfdsdf', '', '', '', 0, '', 0, 0, '', 0),
 (7, 83, '02/02/2021', 'sdfgh', 'uytrewdfgh', 'sdfgfdsdf', '', '', '', 0, '', 0, 0, '', 0),
 (8, 83, '02/02/2021', 'sdfgh', 'uytrewdfgh', 'sdfgfdsdf', '', '', '', 0, '', 0, 0, '', 0),
-(9, 83, '02/02/2021', 'sdfgh', 'uytrewdfgh', 'sdfgfdsdf', '', '', '', 0, '', 0, 0, '', 0);
+(9, 83, '02/02/2021', 'sdfgh', 'uytrewdfgh', 'sdfgfdsdf', '', '', '', 0, '', 0, 0, '', 0),
+(10, 84, '02/04/2021', 'ertytrewe', 'wertyujytrewert', 'wertytre', 'ertyu', 'ertyu', 'drftyujk', 2345678, '', 4, 345, '', 1),
+(12, 84, '02/04/2021', 'ertytrewe', 'wertyujytrewert', 'wertytre', 'ertyu', 'ertyu', 'drftyujk', 2345678, '', 4, 345, '', 1),
+(13, 84, '02/04/2021', 'ertytrewe', 'wertyujytrewert', 'wertytre', 'ertyu', 'ertyu', 'drftyujk', 2345678, '', 4, 345, '', 1),
+(14, 89, '02/10/2021', 'WSEDRTD', 'QWERT54RFTGYHGF', 'Will Smith', 'Google INC', 'google.com', 'Ensontie 1, 49420 Hamina, Finland', 2345678, '', 1, 12000, 'ONLINE', 1),
+(15, 89, '02/10/2021', 'WSEDRTD', 'QWERT54RFTGYHGF', 'Will Smith', 'Google INC', 'google.com', 'Ensontie 1, 49420 Hamina, Finland', 2345678, '', 1, 12000, 'ONLINE', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +134,106 @@ INSERT INTO `sales` (`sales_id`, `user_id`, `date`, `invoice_no`, `gst_no`, `nam
 (17, 83, '02/02/2021', 'SDFGGS', 'QWERTYIUYTYF', 'SDGFHDDJ', '', '', '', 0, '', 0, 0, '', 0),
 (18, 83, '02/02/2021', 'SDFGGS', 'QWERTYIUYTYF', 'SDGFHDDJ', '', '', '', 0, '', 0, 0, '', 0),
 (19, 83, '02/02/2021', 'SDFGGS', 'QWERTYIUYTYF', 'SDGFHDDJ', '', '', '', 0, '', 0, 0, '', 0),
-(20, 83, '02/02/2021', 'SDFGGS', 'QWERTYIUYTYF', 'SDGFHDDJ', '', '', '', 0, '', 0, 0, '', 0);
+(20, 83, '02/02/2021', 'SDFGGS', 'QWERTYIUYTYF', 'SDGFHDDJ', '', '', '', 0, '', 0, 0, '', 0),
+(21, 84, '02/05/2021', 'LLL/25TG/YRUD', 'QWERTYUIOPHGFD', 'Mr. Rakesh', 'Pataka Industries Pvt Ltd', '', '', 987654321, 'Packing Materials', 201, 29000, 'NEFT', 0),
+(22, 84, '02/05/2021', 'LLL/25TG/YRUD', 'QWERTYUIOPHGFD', 'Mr. Rakesh', 'Pataka Industries Pvt Ltd', '', '', 987654321, 'Packing Materials', 201, 29000, 'NEFT', 0),
+(23, 84, '02/17/2021', 'asdfghgfd', 'qwertyui89o', 'asdf', '', '', '', 2345678, '', 0, 0, '', 0),
+(24, 84, '02/17/2021', 'asdfghgfd', 'qwertyui89o', 'asdf', '', '', '', 2345678, '', 0, 0, '', 0),
+(25, 84, '02/03/2021', 'azsxdcfghjk', 'asdfghjedrftgyh', 'dfghj', '', 'qwertyuiop', '', 0, '', 0, 0, '', 0),
+(26, 84, '02/03/2021', 'azsxdcfghjk', 'asdfghjedrftgyh', 'dfghj', '', 'qwertyuiop', '', 0, '', 0, 0, '', 0),
+(27, 84, '02/02/2021', 'sdfgtrert', 'sderftgyhujytrs', 'sdfgdfg', '', 'srdtyfgujuytrhtjyj', 'esrdtyuytrytjeykruyjt', 234567, '', 0, 0, '', 0),
+(28, 84, '02/02/2021', 'sdfgtrert', 'sderftgyhujytrs', 'sdfgdfg', '', 'srdtyfgujuytrhtjyj', 'esrdtyuytrytjeykruyjt', 234567, '', 0, 0, '', 0),
+(29, 84, '02/02/2021', 'sdfgtrert', 'sderftgyhujytrs', 'sdfgdfg', '', 'srdtyfgujuytrhtjyj', 'esrdtyuytrytjeykruyjt', 234567, '', 0, 0, '', 0),
+(30, 84, '02/02/2021', 'sdfgtrert', 'sderftgyhujytrs', 'sdfgdfg', '', 'srdtyfgujuytrhtjyj', 'esrdtyuytrytjeykruyjt', 234567, '', 0, 0, '', 0),
+(32, 84, '02/03/2021', 'fgsdfgfdfg', 'sdfgfdfghgfdfgh', 'sdfgfds', 'werf', 'sdfghj', 'sdfgf', 123456789, '', 0, 0, '', 0),
+(33, 84, '02/02/2021', 'sdfghy', 'edrtyuiygtfd', 'sdftgyhujik', 'ertyuytfrd', 'sdfghjhgfd', 'sdfghjhgf', 987654000, 'werty', 1234, 6543, 'wert', 0),
+(34, 84, '02/02/2021', 'sdfghy', 'edrtyuiygtfd', 'sdftgyhujik', 'ertyuytfrd', 'sdfghjhgfd', 'sdfghjhgf', 987654000, 'werty', 1234, 6543, 'wert', 0),
+(36, 89, '13-2-2021', 'WER/889/IU', 'QWERTYUIOPL9IU', 'Bobby Kotick', 'Activision Blizzard', 'Activision.com', '3100 Ocean Park Blvd, Santa Monica, CA 90405, United States', 131025520, 'COD Points', 26000, 8501, 'ONLINE', 1),
+(37, 89, '1/2/2021', 'QWER/221/REF', 'POIUY564CVGJHVFV', 'Mr Ghosh', 'Pataka Industries Pvt Ltd', 'PP@pp.com', '36, Gagan Vihar, Krishna Nagar, Delhi, 110051', 1234567890, 'Brushless Motors', 200, 24900, 'CHECQUE', 1),
+(38, 89, '31/1/2021', 'URYETWR/56URFTGR', 'POIU5676YRE8YTRE', 'Mr. Will', 'Google INC', 'google.com', 'Ensontie 1, 49420 Hamina, Finland', 123456746, 'Hard Drives 2TB', 1200, 590200, 'ONLINE', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_attendance`
+--
+
+CREATE TABLE `tbl_attendance` (
+  `tbl_attendance_id` int(11) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
+  `attend` varchar(255) NOT NULL,
+  `att_time` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_attendance`
+--
+
+INSERT INTO `tbl_attendance` (`tbl_attendance_id`, `user_id`, `employee_id`, `attend`, `att_time`) VALUES
+(1, 83, '1234567', 'present', '2021-02-02'),
+(2, 83, '1234567', 'present', '0000-00-00'),
+(3, 83, '123456666', 'present', '0000-00-00'),
+(4, 83, 'addd3', 'absent', '0000-00-00'),
+(6, 83, 'adc12', 'absent', '0000-00-00'),
+(8, 83, '1234567890', 'absent', '2021-02-12'),
+(9, 83, '1234567', 'absent', '2021-02-12'),
+(10, 83, '123456666', 'absent', '2021-02-12'),
+(11, 83, 'addd3', 'absent', '2021-02-12'),
+(12, 83, 'adc12', 'absent', '2021-02-12'),
+(13, 83, '234567', 'present', '0000-00-00'),
+(14, 83, '4334', '', '0000-00-00'),
+(15, 83, '123', '', '2021-02-12'),
+(16, 84, 'AS233', 'present', '2021-02-13'),
+(17, 84, 'AB112', 'absent', '2021-02-13'),
+(18, 84, 'C123D', 'absent', '2021-02-13'),
+(19, 84, 'B222', 'present', '2021-02-13'),
+(20, 84, 'N22M4', 'present', '2021-02-13'),
+(21, 89, 'ASD122', 'present', '2021-02-14'),
+(22, 89, 'ASFG32', 'absent', '2021-02-14'),
+(23, 89, 'ASFG3R', 'present', '2021-02-14'),
+(24, 89, 'ASFG32I', 'present', '2021-02-14'),
+(25, 89, 'HGD33', 'absent', '2021-02-14'),
+(27, 89, 'AWW22', 'absent', '2021-02-14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_employee`
+--
+
+CREATE TABLE `tbl_employee` (
+  `employee_tbl_id` int(11) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `employee_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_employee`
+--
+
+INSERT INTO `tbl_employee` (`employee_tbl_id`, `user_id`, `name`, `employee_id`) VALUES
+(1, 83, 'Tusar', '1234567890'),
+(2, 74, 'wertyu', '12345'),
+(4, 83, 'qwertyui', '1234567'),
+(5, 83, 'tuuuu', '123456666'),
+(6, 83, 'raj', 'addd3'),
+(7, 83, 'Raj', 'adc12'),
+(8, 83, 'new', '234567'),
+(9, 83, 'mok', '4334'),
+(10, 83, 'set', '123'),
+(11, 84, 'Tushar', 'AS233'),
+(12, 84, 'John', 'AB112'),
+(13, 84, 'Dennis', 'C123D'),
+(14, 84, 'Mohan', 'B222'),
+(15, 84, 'Pandey', 'N22M4'),
+(16, 89, 'Danney', 'ASD122'),
+(17, 89, 'Victor', 'ASFG32'),
+(18, 89, 'Tushar', 'ASFG3R'),
+(19, 89, 'Neil', 'ASFG32I'),
+(20, 89, 'John', 'HGD33'),
+(21, 89, 'Dany', 'AWW22');
 
 -- --------------------------------------------------------
 
@@ -170,7 +274,12 @@ INSERT INTO `users` (`id`, `date of creation`, `first name`, `last name`, `email
 (80, '2021-01-09 06:34:11', 'raj', 'raj', '5rsddg@fhgfg', 'd47524f75777a91e687ec5dc03932333'),
 (81, '2021-01-09 07:59:58', 'qqq', 'qqq', 'wertyu@rf', '883540d9a0fa9dd41414399756e1e9b9'),
 (82, '2021-01-12 12:13:39', 'rrr', 'trrtr', 'raj@rrrrr', '172bd6d20ade89c5de40ec9f6506d47b'),
-(83, '2021-02-10 07:23:44', 'Raj', '!5', 'raaaa@raaa.com', 'afd63fe3e813db5d4e032dc5e28482ef');
+(83, '2021-02-10 07:23:44', 'Raj', '!5', 'raaaa@raaa.com', 'afd63fe3e813db5d4e032dc5e28482ef'),
+(84, '2021-02-13 05:44:35', 'Raj', 'Admin', 'admin@gmail.com', 'd7902c90979cc8a8d1b23f9b2c1413fa'),
+(85, '2021-02-13 10:50:47', 'Raj', 'Admin', 'raj@admin.com', '0bf56b0564c4079ed1cd403ec8627663'),
+(86, '2021-02-13 10:54:45', 'admin', 'raj', 'admin@admin.in', 'e7c1f0fc5bbfd9e801f779295f1b3563'),
+(87, '2021-02-13 10:55:17', 't', 't', 't@t.com', 'd74e340b1115db89cf9a533d08717c7f'),
+(89, '2021-02-13 17:49:09', 'Raj', 'Panja', 'main@main.com', 'efe40c62b8691f9168286a145350d8db');
 
 -- --------------------------------------------------------
 
@@ -213,7 +322,12 @@ INSERT INTO `users_details` (`id`, `date of creation`, `email`, `first name`, `l
 (18, '2021-01-09 06:34:11', '5rsddg@fhgfg', 'raj', 'raj', 0, '', '', '', '', 0),
 (19, '2021-01-09 07:59:58', 'wertyu@rf', 'qqq', 'qqq', 0, '', '', '', '', 0),
 (20, '2021-01-12 12:13:39', 'raj@rrrrr', 'rrr', 'trrtr', 0, '', '', '', '', 0),
-(21, '2021-02-10 07:23:44', 'raaaa@raaa.com', 'Raj', '!5', 0, '', '', '', '', 0);
+(21, '2021-02-10 07:23:44', 'raaaa@raaa.com', 'Raj', '!5', 0, '', '', '', '', 0),
+(22, '2021-02-13 05:44:35', 'admin@gmail.com', 'Raj', 'Admin', 1234567890, 'AWS Pvt Ltd', 'Orange StreetBlock-22A', 'Napur', 'Maharashtra', 220192),
+(23, '2021-02-13 10:50:47', 'raj@admin.com', 'Raj', 'Admin', 0, '', '', '', '', 0),
+(24, '2021-02-13 10:54:45', 'admin@admin.in', 'admin', 'raj', 0, '', '', '', '', 0),
+(25, '2021-02-13 10:55:17', 't@t.com', 't', 't', 0, '', '', '', '', 0),
+(26, '2021-02-13 17:49:09', 'main@main.com', 'Raj', 'Panja', 0, '', '', '', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -241,6 +355,20 @@ ALTER TABLE `sales`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD PRIMARY KEY (`tbl_attendance_id`,`user_id`,`employee_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_employee`
+--
+ALTER TABLE `tbl_employee`
+  ADD PRIMARY KEY (`employee_tbl_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -260,7 +388,7 @@ ALTER TABLE `users_details`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orders_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `orders_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -272,19 +400,31 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `sales_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  MODIFY `tbl_attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `tbl_employee`
+--
+ALTER TABLE `tbl_employee`
+  MODIFY `employee_tbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `users_details`
 --
 ALTER TABLE `users_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -307,6 +447,18 @@ ALTER TABLE `product`
 --
 ALTER TABLE `sales`
   ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD CONSTRAINT `tbl_attendance_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `tbl_employee`
+--
+ALTER TABLE `tbl_employee`
+  ADD CONSTRAINT `tbl_employee_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

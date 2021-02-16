@@ -1,391 +1,248 @@
-<!DOCTYPE html>
+<?php
+ini_set("display_errors", "off");
 
-<head>
-    <style>
-        body {
-            background-color: #161616;
-        }
+session_start();
 
-        #chartdiv {
-            width: 100%;
-            height: 500px;
-            background-color: #161616;
-        }
+$error = "";
+$success = "";
 
-        .amcharts-graph-g2 .amcharts-graph-stroke {
-            stroke-dasharray: 3px 3px;
-            stroke-linejoin: round;
-            stroke-linecap: round;
-            -webkit-animation: am-moving-dashes 1s linear infinite;
-            animation: am-moving-dashes 1s linear infinite;
-        }
+// Checks Sessions and Cookies 
 
-        @-webkit-keyframes am-moving-dashes {
-            100% {
-                stroke-dashoffset: -31px;
-            }
-        }
+if (array_key_exists("id", $_COOKIE) && $_COOKIE['id']) {
 
-        @keyframes am-moving-dashes {
-            100% {
-                stroke-dashoffset: -31px;
-            }
-        }
+    $_SESSION['id'] = $_COOKIE['id'];
+}
 
-        .lastBullet {
-            -webkit-animation: am-pulsating 1s ease-out infinite;
-            animation: am-pulsating 1s ease-out infinite;
-        }
+if (array_key_exists("id", $_SESSION)) {
+    include "connection.php";
 
-        @-webkit-keyframes am-pulsating {
-            0% {
-                stroke-opacity: 1;
-                stroke-width: 0px;
-            }
+    $query = "SELECT * FROM `sales` WHERE user_id = '" . mysqli_real_escape_string($link, $_SESSION['id']) . "' LIMIT 1";
 
-            100% {
-                stroke-opacity: 0;
-                stroke-width: 50px;
-            }
-        }
+    $row = mysqli_fetch_array(mysqli_query($link, $query));
+}
+?>
 
-        @keyframes am-pulsating {
-            0% {
-                stroke-opacity: 1;
-                stroke-width: 0px;
-            }
+<?php
 
-            100% {
-                stroke-opacity: 0;
-                stroke-width: 50px;
-            }
-        }
+include "header.php";
 
-        .amcharts-graph-column-front {
-            -webkit-transition: all 0.3s 0.3s ease-out;
-            transition: all 0.3s 0.3s ease-out;
-        }
+include "navBarTop.php";
 
-        .amcharts-graph-column-front:hover {
-            fill: #496375;
-            stroke: #496375;
-            -webkit-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
-        }
+include "sideNavBar.php";
 
-        .amcharts-graph-g3 {
-            stroke-linejoin: round;
-            stroke-linecap: round;
-            stroke-dasharray: 500%;
-            stroke-dasharray: 0 \0/;
-            /* fixes IE prob */
-            stroke-dashoffset: 0 \0/;
-            /* fixes IE prob */
-            -webkit-animation: am-draw 40s;
-            animation: am-draw 40s;
-        }
+?>
 
-        @-webkit-keyframes am-draw {
-            0% {
-                stroke-dashoffset: 500%;
-            }
+<div class="content">
 
-            100% {
-                stroke-dashoffset: 0%;
-            }
-        }
+    <h6 class="display-1">My Payments.</h6>
+    <br>
 
-        @keyframes am-draw {
-            0% {
-                stroke-dashoffset: 500%;
-            }
+    <a href="editInvoice.php" class="btn btn-info btn-xs print">Create your own invoice</a>
 
-            100% {
-                stroke-dashoffset: 0%;
-            }
-        }
-    </style>
-</head>
+    <div class="container">
 
-<body>
-    <div id="chartdiv"></div>
+        <div class="row">
+            <div class="card card-body">
+
+                <div class="col" id="Existing-Orders">
+
+                    <div class="card">
+
+                        <h5 class="card-header">My Sales Record...</h5>
+                        <div class="card-body">
 
 
-    <!-- end Graph HTML -->
+                            <?php
+                            $result = mysqli_query($link, "SELECT * FROM `sales` WHERE user_id = '" . mysqli_real_escape_string($link, $_SESSION['id']) . "' ORDER BY `sales_id` DESC");
 
-    
-    <script>
-        var chartData = [{
-                date: "2012-01-01",
-                distance: 227,
-                townName: "New York",
-                townName2: "New York",
-                townSize: 25,
-                latitude: 40.71,
-                duration: 408
-            },
-            {
-                date: "2012-01-02",
-                distance: 371,
-                townName: "Washington",
-                townSize: 14,
-                latitude: 38.89,
-                duration: 482
-            },
-            {
-                date: "2012-01-03",
-                distance: 433,
-                townName: "Wilmington",
-                townSize: 6,
-                latitude: 34.22,
-                duration: 562
-            },
-            {
-                date: "2012-01-04",
-                distance: 345,
-                townName: "Jacksonville",
-                townSize: 7,
-                latitude: 30.35,
-                duration: 379
-            },
-            {
-                date: "2012-01-05",
-                distance: 480,
-                townName: "Miami",
-                townName2: "Miami",
-                townSize: 10,
-                latitude: 25.83,
-                duration: 501
-            },
-            {
-                date: "2012-01-06",
-                distance: 386,
-                townName: "Tallahassee",
-                townSize: 7,
-                latitude: 30.46,
-                duration: 443
-            },
-            {
-                date: "2012-01-07",
-                distance: 348,
-                townName: "New Orleans",
-                townSize: 10,
-                latitude: 29.94,
-                duration: 405
-            },
-            {
-                date: "2012-01-08",
-                distance: 238,
-                townName: "Houston",
-                townName2: "Houston",
-                townSize: 16,
-                latitude: 29.76,
-                duration: 309
-            },
-            {
-                date: "2012-01-09",
-                distance: 218,
-                townName: "Dalas",
-                townSize: 17,
-                latitude: 32.8,
-                duration: 287
-            },
-            {
-                date: "2012-01-10",
-                distance: 349,
-                townName: "Oklahoma City",
-                townSize: 11,
-                latitude: 35.49,
-                duration: 485
-            },
-            {
-                date: "2012-01-11",
-                distance: 603,
-                townName: "Kansas City",
-                townSize: 10,
-                latitude: 39.1,
-                duration: 890
-            },
-            {
-                date: "2012-01-12",
-                distance: 534,
-                townName: "Denver",
-                townName2: "Denver",
-                townSize: 18,
-                latitude: 39.74,
-                duration: 810
-            },
-            {
-                date: "2012-01-13",
-                townName: "Salt Lake City",
-                townSize: 12,
-                distance: 425,
-                duration: 670,
-                latitude: 40.75,
-                alpha: 0.4
-            },
-            {
-                date: "2012-01-14",
-                latitude: 36.1,
-                duration: 470,
-                townName: "Las Vegas",
-                townName2: "Las Vegas",
-                bulletClass: "lastBullet"
-            },
-            {
-                date: "2012-01-15"
-            },
-            {
-                date: "2012-01-16"
-            },
-            {
-                date: "2012-01-17"
-            },
-            {
-                date: "2012-01-18"
-            },
-            {
-                date: "2012-01-19"
-            }
-        ];
-        var chart = AmCharts.makeChart("chartdiv", {
-            type: "serial",
-            theme: "dark",
-            dataDateFormat: "YYYY-MM-DD",
-            dataProvider: chartData,
+                            ?>
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
+                            ?>
 
-            addClassNames: true,
-            startDuration: 1,
-            color: "#FFFFFF",
-            marginLeft: 0,
 
-            categoryField: "date",
-            categoryAxis: {
-                parseDates: true,
-                minPeriod: "DD",
-                autoGridCount: false,
-                gridCount: 50,
-                gridAlpha: 0.1,
-                gridColor: "#FFFFFF",
-                axisColor: "#555555",
-                dateFormats: [{
-                        period: "DD",
-                        format: "DD"
-                    },
-                    {
-                        period: "WW",
-                        format: "MMM DD"
-                    },
-                    {
-                        period: "MM",
-                        format: "MMM"
-                    },
-                    {
-                        period: "YYYY",
-                        format: "YYYY"
-                    }
-                ]
-            },
+                                <div class="table-responsive">
+                                    <table class='table table-hover table-borderless myTable'>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Invoice No.</th>
+                                                <th scope="col">Business Name</th>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Amount (&#8377;)</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        $i = 0;
+                                        while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                            <tbody>
+                                                <form>
+                                                    <th scope="row"><?php echo $i + 1; ?></th>
+                                                    <td><?php echo $row["date"]; ?></td>
+                                                    <td><?php echo $row["name"]; ?></td>
+                                                    <td><?php echo $row["invoice_no"]; ?></td>
+                                                    <td><?php echo $row["business_name"]; ?></td>
+                                                    <td><?php echo $row["product"]; ?></td>
+                                                    <td><?php echo $row["quantity"]; ?></td>
+                                                    <td><?php echo $row["amount"]; ?></td>
+                                                    <td><input type="button" name="print" value="print" id="<?php echo $row["sales_id"]; ?>" class="btn btn-info btn-xs print" /></td>
+                                                    </tr>
+                                                </form>
+                                            </tbody>
+                                        <?php
+                                            $i++;
+                                        }
+                                        ?>
+                                    </table>
 
-            valueAxes: [{
-                    id: "a1",
-                    title: "distance",
-                    gridAlpha: 0,
-                    axisAlpha: 0
-                },
-                {
-                    id: "a2",
-                    position: "right",
-                    gridAlpha: 0,
-                    axisAlpha: 0,
-                    labelsEnabled: false
-                },
-                {
-                    id: "a3",
-                    title: "duration",
-                    position: "right",
-                    gridAlpha: 0,
-                    axisAlpha: 0,
-                    inside: true,
-                    duration: "mm",
-                    durationUnits: {
-                        DD: "d. ",
-                        hh: "h ",
-                        mm: "min",
-                        ss: ""
-                    }
-                }
-            ],
-            graphs: [{
-                    id: "g1",
-                    valueField: "distance",
-                    title: "distance",
-                    type: "column",
-                    fillAlphas: 0.9,
-                    valueAxis: "a1",
-                    balloonText: "[[value]] miles",
-                    legendValueText: "[[value]] mi",
-                    legendPeriodValueText: "total: [[value.sum]] mi",
-                    lineColor: "#263138",
-                    alphaField: "alpha"
-                },
-                {
-                    id: "g2",
-                    valueField: "latitude",
-                    classNameField: "bulletClass",
-                    title: "latitude/city",
-                    type: "line",
-                    valueAxis: "a2",
-                    lineColor: "#786c56",
-                    lineThickness: 1,
-                    legendValueText: "[[description]]/[[value]]",
-                    descriptionField: "townName",
-                    bullet: "round",
-                    bulletSizeField: "townSize",
-                    bulletBorderColor: "#786c56",
-                    bulletBorderAlpha: 1,
-                    bulletBorderThickness: 2,
-                    bulletColor: "#000000",
-                    labelText: "[[townName2]]",
-                    labelPosition: "right",
-                    balloonText: "latitude:[[value]]",
-                    showBalloon: true,
-                    animationPlayed: true
-                },
-                {
-                    id: "g3",
-                    title: "duration",
-                    valueField: "duration",
-                    type: "line",
-                    valueAxis: "a3",
-                    lineColor: "#ff5755",
-                    balloonText: "[[value]]",
-                    lineThickness: 1,
-                    legendValueText: "[[value]]",
-                    bullet: "square",
-                    bulletBorderColor: "#ff5755",
-                    bulletBorderThickness: 1,
-                    bulletBorderAlpha: 1,
-                    dashLengthField: "dashLength",
-                    animationPlayed: true
-                }
-            ],
 
-            chartCursor: {
-                zoomable: false,
-                categoryBalloonDateFormat: "DD",
-                cursorAlpha: 0,
-                valueBalloonsEnabled: false
-            },
-            legend: {
-                bulletType: "round",
-                equalWidths: false,
-                valueWidth: 120,
-                useGraphSettings: true,
-                color: "#FFFFFF"
-            }
-        });
-    </script>
-</body>
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-end pager myPager">
+                                        </ul>
+                                    </nav>
 
-</html>
+                                </div>
+                            <?php
+                            } else {
+                                echo "No result found";
+                            }
+
+                            ?>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="card card-body">
+
+                <div class="col" id="Existing-Orders">
+
+                    <div class="card">
+
+                        <h5 class="card-header">My Orders Record...</h5>
+                        <div class="card-body">
+
+
+                            <?php
+                            $result = mysqli_query($link, "SELECT * FROM `orders` WHERE user_id = '" . mysqli_real_escape_string($link, $_SESSION['id']) . "' ORDER BY `orders_id` DESC");
+
+                            ?>
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
+                            ?>
+
+
+                                <div class="table-responsive">
+                                    <table class='table table-hover table-borderless myTable2'>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Invoice No.</th>
+                                                <th scope="col">Business Name</th>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Amount (&#8377;)</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        $i = 0;
+                                        while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                            <tbody>
+                                                <form>
+                                                    <th scope="row"><?php echo $i + 1 ?></th>
+                                                    <td><?php echo $row["date"]; ?></td>
+                                                    <td><?php echo $row["name"]; ?></td>
+                                                    <td><?php echo $row["invoice_no"]; ?></td>
+                                                    <td><?php echo $row["business_name"]; ?></td>
+                                                    <td><?php echo $row["product"]; ?></td>
+                                                    <td><?php echo $row["quantity"]; ?></td>
+                                                    <td><?php echo $row["amount"]; ?></td>
+                                                    <td><input type="button" name="printOrder" value="print" id="<?php echo $row["orders_id"]; ?>" class="btn btn-info btn-xs print" /></td>
+                                                    </tr>
+                                                </form>
+                                            </tbody>
+                                        <?php
+                                            $i++;
+                                        }
+                                        ?>
+                                    </table>
+
+
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-end pager2 myPager2">
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                            <?php
+                            } else {
+                                echo "No result found";
+                            }
+
+                            ?>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div id="dataModall" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" id="printarea">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Your payment details.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="detail">
+
+            </div>
+            <div class="modal-footer form-buttons">
+                <input type="button" class="btn btn-success" value="Print this page" onClick="window.print()">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<?php include("footer.php"); ?>

@@ -24,6 +24,48 @@
 <!-- JavaScript -->
 <script type="text/javascript">
     $(document).ready(function() {
+        $('.print').click(function() {
+            var employee_id = $(this).attr("id");
+            $.ajax({
+                url: "print.php",
+                method: "post",
+                data: {
+                    employee_id: employee_id
+                },
+                success: function(data) {
+                    $('#detail').html(data);
+                    $('#dataModall').modal("show");
+                }
+            });
+        });
+    });
+
+
+
+    $(document).ready(function() {
+        $('.printOrder').click(function() {
+            var employee_id = $(this).attr("id");
+            $.ajax({
+                url: "printOrder.php",
+                method: "post",
+                data: {
+                    employee_id: employee_id
+                },
+                success: function(data) {
+                    $('#detail').html(data);
+                    $('#dataModall').modal("show");
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+    $(document).ready(function() {
         $('.view_data').click(function() {
             var employee_id = $(this).attr("id");
             $.ajax({
@@ -61,7 +103,7 @@
 
 
 
-    $(document).on('click', '.delete', function() {
+    $(document).on('click', '.delete_data', function() {
         var delete_id = $(this).attr("id");
         if (confirm("Are you sure want to remove this data?")) {
             $.ajax({
@@ -99,17 +141,17 @@
 
 
     $(document).on('click', '.edit_data', function() {
-        var edit_id = $(this).attr("id");
+        var employee_id = $(this).attr("id");
         if (confirm("Are you sure want to remove edit this data?")) {
             $.ajax({
                 url: "edit.php",
                 method: "post",
                 data: {
-                    edit_id: edit_id
+                    employee_id: employee_id
                 },
                 success: function(data) {
-                    $('#deletedataModal').modal
-                    location.reload(true);
+                    $('#detail').html(data);
+                    $('#dataModal').modal("show");
                 }
             });
         }

@@ -97,8 +97,12 @@ if (array_key_exists("submit", $_POST)) {
 
                         $_SESSION['id'] = $id;
 
+                        setcookie("id", $id, time() + 60 * 60 * 24 * 365);
+
                         if ($_POST['stayLoggedIn'] == '1') {
                             setcookie("id", $id, time() + 60 * 60 * 24 * 365);
+
+                            header("Location: loggedin.php");
                         }
 
                         header("Location: loggedin.php");
@@ -122,9 +126,12 @@ if (array_key_exists("submit", $_POST)) {
 
                     $_SESSION['id'] = $row['id'];
 
-                    if (isset($_POST['stayLoggedIn']) and $_POST['stayLoggedIn'] == '1') {
+                    setcookie("id", $row['id'], time() + 60 * 60 * 24 * 1);
 
-                        setcookie("id", $row['id'], time() + 60 * 60 * 24 * 365);
+                    if (isset($_POST['stayLoggedIn']) == '1') {
+
+                        setcookie("id", $row['id'], time() + 60 * 60 * 24 * 1);
+                        header("Location: loggedin.php");
                     } 
 
                     header("Location: loggedin.php");

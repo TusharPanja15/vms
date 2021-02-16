@@ -21,17 +21,6 @@ if (array_key_exists("id", $_SESSION)) {
     $row = mysqli_fetch_array(mysqli_query($link, $query));
 
 
-    if (isset($_POST['submit'])) {
-
-        $exists = mysqli_query($link, "select 1 from `" . $ordersTable . "` ");
-
-        if ( $exists !== FALSE) {
-            $error .= "Sorry! can't proceed your request.<br>";
-
-            mysqli_close($link);
-        }
-    }
-
     if (array_key_exists("submit-order", $_POST)) {
         include "connection.php";
 
@@ -94,13 +83,13 @@ if (array_key_exists("id", $_SESSION)) {
         //     $error .= "&middot Payment Mode is required<br>";
         // }
 
-        // if ($_POST['paymentStatus']) {
+        if ($_POST['paymentStatus']) {
 
-        //     $_POST['paymentStatus'] = $_POST['paymentStatus'] == 'true' ? true : false;
-        // } else {
+            $_POST['paymentStatus'] = $_POST['paymentStatus'] == 'true' ? true : false;
+        } else {
 
-        //     $error .= "&middot Payment Status is required<br>";
-        // }
+            $error .= "&middot Payment Status is required<br>";
+        }
 
         if ($error != "") {
             $error = '
@@ -124,7 +113,7 @@ if (array_key_exists("id", $_SESSION)) {
                 ';
         } else {
             if ($_POST['submitOrder'] == 1) {
-                $ordersQuery = "INSERT INTO `orders` (`user_id`, `date`, `invoice_no`, `gst_no`, `name`, `business_name`, `email`, `address`, `contact_no`, `product`, `quantity`, `amount`, `payment_mode`) VALUES (
+                $ordersQuery = "INSERT INTO `orders` (`user_id`, `date`, `invoice_no`, `gst_no`, `name`, `business_name`, `email`, `address`, `contact_no`, `product`, `quantity`, `amount`, `payment_mode`, `payment_status`) VALUES (
                 '" . mysqli_real_escape_string($link, $_SESSION['id']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['date']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['invoiceNo']) . "',
@@ -137,12 +126,13 @@ if (array_key_exists("id", $_SESSION)) {
                 '" . mysqli_real_escape_string($link, $_POST['product']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['quantity']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['amount']) . "',
-                '" . mysqli_real_escape_string($link, $_POST['paymentMode']) . "'
+                '" . mysqli_real_escape_string($link, $_POST['paymentMode']) . "',
+                '" . mysqli_real_escape_string($link, $_POST['paymentStatus']) . "'
                 ) LIMIT 1";
 
                 mysqli_query($link, $ordersQuery);
             } else {
-                $salesQuery = "INSERT INTO `sales` (`user_id`, `date`, `invoice_no`, `gst_no`, `name`, `business_name`, `email`, `address`, `contact_no`, `product`, `quantity`, `amount`, `payment_mode`) VALUES (
+                $salesQuery = "INSERT INTO `sales` (`user_id`, `date`, `invoice_no`, `gst_no`, `name`, `business_name`, `email`, `address`, `contact_no`, `product`, `quantity`, `amount`, `payment_mode`, `payment_status`) VALUES (
                 '" . mysqli_real_escape_string($link, $_SESSION['id']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['date']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['invoiceNo']) . "',
@@ -155,7 +145,8 @@ if (array_key_exists("id", $_SESSION)) {
                 '" . mysqli_real_escape_string($link, $_POST['product']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['quantity']) . "',
                 '" . mysqli_real_escape_string($link, $_POST['amount']) . "',
-                '" . mysqli_real_escape_string($link, $_POST['paymentMode']) . "'
+                '" . mysqli_real_escape_string($link, $_POST['paymentMode']) . "',
+                '" . mysqli_real_escape_string($link, $_POST['paymentStatus']) . "'
                 ) LIMIT 1";
 
                 mysqli_query($link, $salesQuery);

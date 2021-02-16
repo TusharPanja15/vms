@@ -169,10 +169,10 @@ include "sideNavBar.php"; ?>
 
         <?php
 
-        $sales = "SELECT SUM(amount), count(*) as number FROM `sales` GROUP BY payment_status";
+        $sales = "SELECT SUM(amount), count(*) as number FROM `sales` WHERE user_id = '" . mysqli_real_escape_string($link, $_SESSION['id']) . "' GROUP BY payment_status";
         $query_sales = mysqli_query($link, $sales);
 
-        $orders = "SELECT SUM(amount), count(*) as number FROM `orders` GROUP BY payment_status";
+        $orders = "SELECT SUM(amount), count(*) as number FROM `orders` WHERE user_id = '" . mysqli_real_escape_string($link, $_SESSION['id']) . "' GROUP BY payment_status";
         $query_orders = mysqli_query($link, $orders);
 
         ?>
