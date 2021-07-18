@@ -44,7 +44,7 @@ For demo purposes, you could use the folloing credentials for login
 
 **************************************
 
-Created by:	Tushar Panja
+Created by:
 
 
 **************************************
